@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить блюдо</title>
+</head>
+<body>
+    <div class="row">
+        {{ response }}
+    </div>
+    Добавить блюдо
+    {% csrf_token %}
+     <form id="form_AddDish" method="post" enctype="multipart/form-data">
+           {{ AddDish }}
+           {% csrf_token %}
+           <input class="button" type="submit" value="Добавить">
+     </form>
+
+<form action="/">
+    <button type="submit">Вернуться на страницу с меню</button>
+</form>
+</body>
+</html>

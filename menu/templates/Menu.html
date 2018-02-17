@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню ресторана</title>
+</head>
+<body>
+   <p class="label rounded"> Меню ресторана </p>
+   <div class="row">
+   <a class="button" href={% url "add_dish" %}>Добавить блюдо в меню</a>
+   </div>
+{#   <img src="{{ MEDIA_URL }}" >#}
+   <form id="form" name="form" method="get" action={% url "summary_value" %}>
+        <table border="1" width="600">
+            <tr align="left">
+                    <th>#</th>
+                    <th> Название</th>
+                    <th> Пищевая ценность</th>
+                    <th> Стоимость</th>
+                    <th> Изображение</th>
+            </tr>
+            {% if menu.count == 0 %}
+                Меню пустое
+            {% else %}
+                {% for dish in menu %}
+                    <tr>
+                    <td><input class="" type="checkbox" name="dish_{{ dish.id }}" value="{{ dish.id }}"></td>
+                    <td>{{ dish.name }}</td>
+                    <td>{{ dish.nutrition_value }}</td>
+                    <td>{{ dish.value }}</td>
+                    <td> <img src=" {{dish.image.url }}"> </td>
+{#                    <td class="menu" width="16%" height="10%" style="background-image: url('{{ dish.image }}'); vertical-align: bottom" ALIGN="center">  </td>#}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+         </table>
+   <input class="button" type="submit" value="Отправить">
+   </form>
+
+
+</body>
+</html>

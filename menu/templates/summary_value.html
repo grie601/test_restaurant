@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Чек</title>
+</head>
+<body>
+    Чек
+    <form id="form" name="form" method="get">
+         <table border="1" width="600">
+            <tr align="left">
+                    <th> Название</th>
+                    <th> Пищевая ценность</th>
+                    <th> Стоимость</th>
+                    <th> Изображение</th>
+            </tr>
+            {% if menu.count == 0 %}
+                Меню пустое
+            {% else %}
+                {% for dish in all_choose_dishes %}
+                    <tr>
+                    <td>{{ dish.name }}</td>
+                    <td>{{ dish.nutrition_value }}</td>
+                    <td>{{ dish.value }}</td>
+                   <td> <img src=" {{dish.image.url }}"> </td>
+{#                    <td class="menu" width="16%" height="10%" style="background-image: url('{{ dish.image }}'); vertical-align: bottom" ALIGN="center">  </td>#}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+         </table>
+    </form>
+ <div class="row">
+    {{ response }}
+ </div>
+    Расчет стоимости : {{ count }} р.
+
+    <form action="/">
+    <button type="submit">Вернуться на страницу с меню</button>
+    </form>
+</body>
+</html>
