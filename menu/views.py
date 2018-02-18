@@ -36,9 +36,7 @@ def add_dish(request):
                               nutrition_value=data['nutrition_value'],
                               value=data['value'],
                               image=request.FILES['image'])
-            # args['file'] = default_storage.save('{}{}'.format(FILE_STORAGE, request.FILES['image']),
-            #                                                    ContentFile(request.FILES['image'].read()))
-            new_dish.image = args['file']
+
             new_dish.save()
             args['response'] = 'The Dish was added'
         else:
