@@ -23,7 +23,7 @@ test
 --
 API реализовано на библиотеке Tastypie, так как опыта в текущей технологии больше чем в RESTAPI DJANGO FRAMEWORK(Раньше не пользовался)
 
-Отправка осуществляется по ссылке /api/v1/dishes/ с body запроса {"name": "SomeDish", "nutrition_value": "SomeValue", "value": "SomeValue"} и File = 
+Отправка осуществляется по ссылке /api/dish/dishes/ с body запроса {"name": "SomeDish", "nutrition_value": "SomeValue", "value": "SomeValue"} и File = 
 {"image" : open('SomePicture'.png, "rb")}
 
 При корректном вводе данных результат запроса будет код 200
